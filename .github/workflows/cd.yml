@@ -1,0 +1,21 @@
+name: dummy CD workflow
+
+on:
+ workflow_dispatch:
+    inputs:
+      env:
+        description: "which environment to deploy to"
+        required: true
+        default: "dev"
+      image-tags:
+        description: "what image tags to deploy"
+        required: true
+
+jobs:
+  print-message:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print message
+        run: |
+          echo "env is ${{ github.event.inputs.env }}"
+          echo "image-tags is ${{ github.event.inputs.image-tags }}"
