@@ -4,13 +4,16 @@ on:
  workflow_dispatch:
     inputs:
       env:
+        type: choice
+        options:
+          - dev
         description: "which environment to deploy to"
         required: true
-        default: "dev"
-      image-tags:
-        description: "what image tags to deploy"
-        required: true
 
+      image-tags:
+        type: string
+        description: "what images to deploy (non-empty json string {image-name: image-tag, ...})"
+        required: true
 jobs:
   print-message:
     runs-on: ubuntu-latest
@@ -18,4 +21,4 @@ jobs:
       - name: Print message
         run: |
           echo "env is ${{ github.event.inputs.env }}"
-          echo "image-tags is ${{ github.event.inputs.image-tags }}"
+          echo "image-tags is ${{ github.event.inputs.images }}"
