@@ -10,7 +10,7 @@ on:
         description: "which environment to deploy to"
         required: true
 
-      image-tags:
+      images:
         type: string
         description: "what images to deploy (non-empty json string {image-name: image-tag, ...})"
         required: true
