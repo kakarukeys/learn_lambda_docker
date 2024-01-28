@@ -15,8 +15,6 @@ on:
         description: "what images to deploy (non-empty json string {image-name: image-tag, ...})"
         required: true
 
-permissions: write-all
-
 jobs:
   print-message:
     runs-on: ubuntu-latest
